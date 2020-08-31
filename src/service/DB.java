@@ -10,7 +10,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import model.overview;
 
 /**
  *
@@ -61,5 +64,28 @@ public class DB {
     }
     //////////////////////////////login//////////////////////
     
-    
+//SELECT couch.name,groups.g_id,groups.level,groups.track,groups.g_time FROM groups INNER JOIN couch ON groups.c_id=couch.c_id WHERE groups.g_day='السبت' ORDER BY g_time ASC
+  
+        //////////////////////////////overview//////////////////////
+public List<overview> over(int b) throws SQLException {
+
+    List<overview> t = new ArrayList<overview>();
+       try {
+            statement = connection.createStatement();
+            ResultSet r = statement
+                    .executeQuery("SELECT couch.name,groups.g_id,groups.level,groups.track,groups.g_time FROM groups INNER JOIN couch ON groups.c_id=couch.c_id WHERE g_day="+b+" ORDER BY g_time ASC");
+           System.out.println(r.next());
+            while (r.next()) {
+                //System.out.println(r.getString("couch.name"));
+                t.add(new overview(r.getString("couch.name"), r.getInt("groups.g_id"),
+                        r.getString("groups.level"), r.getString("groups.track"),r.getTime("groups.g_time")));
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "over :" + ex);
+        }
+
+       return t;
+}
 }

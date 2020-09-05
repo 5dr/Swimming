@@ -46,6 +46,8 @@ import javafx.scene.layout.VBox;
 import static javafx.scene.paint.Color.rgb;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.JOniException;
 import model.attend_couch;
 import model.coach;
 import model.overview;
@@ -90,6 +92,12 @@ public class home implements Initializable {
     
     public void addcoach(ActionEvent actionEvent) {
        
+        if(add_C_name.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Name is ");
+        }else if(add_C_adress.getText().equals("")){
+                    JOptionPane.showMessageDialog(null,"address is ");
+
+        }else{
         try {
             allDb.DB_connection();
             allDb.addcoach(add_C_name.getText(), add_C_phone.getText(), add_C_adress.getText(), add_C_gender.getText());
@@ -97,7 +105,7 @@ public class home implements Initializable {
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-
+        }
     }
 
     public void addswimmer(ActionEvent actionEvent) {

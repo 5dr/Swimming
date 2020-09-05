@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +19,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" stylesheets="@../styling/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.home">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #3e4345;" stylesheets="@../styling/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.home">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" spacing="10.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,7 +35,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Home_32px.png" />
+                        <Image url="@../images/icons8-home-50.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -46,11 +49,11 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Orders">
+            <Button fx:id="btnOrders" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Add Swimmer">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Open_Envelope_32px.png" />
+                        <Image url="@../images/icons8-swimmer-back-view-50.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -58,11 +61,11 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Customers">
+            <Button fx:id="btnCustomers" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="All Coach">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Person_32px.png" />
+                        <Image url="@../images/icons8-coach-100%20(1).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -70,23 +73,11 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Menus">
+            <Button fx:id="btnMenus" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Search">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Xbox_Menu_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="50.0" />
-               </padding>
-            </Button>
-            <Button fx:id="btnPackages" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#swi" prefHeight="42.0" prefWidth="259.0" text="Packages">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8_Box_32px.png" />
+                        <Image url="@../images/icons8-search-50.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -98,7 +89,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Slider__32px.png" />
+                        <Image url="@../images/icons8-slider-50.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -110,7 +101,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/icons8_Sign_Out_32px.png" />
+                        <Image url="@../images/icons8-logout-rounded-left-50.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -122,12 +113,10 @@
       </VBox>
       <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
          <children>
-            <Pane fx:id="pnlCustomer" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlOrders" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlMenus" prefHeight="200.0" prefWidth="200.0" />
-            <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0">
+            <Pane fx:id="pnlOverview" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #dddddd;">
                <children>
-                  <TextField layoutX="590.0" layoutY="47.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
                   <HBox alignment="CENTER_LEFT" layoutX="339.0" layoutY="74.0" prefHeight="92.0" prefWidth="115.0" spacing="50.0">
                      <children>
                         <VBox alignment="CENTER" prefHeight="92.0" prefWidth="119.0">
@@ -137,34 +126,34 @@
                                     <Font name="System Bold" size="26.0" />
                                  </font>
                               </Label>
-                              <Label text="Total Group today" textFill="#e7e5e5" />
+                              <Label text="Total Group today" textFill="#258bbf" />
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="190.0" prefHeight="42.0" prefWidth="589.0" spacing="80.0" style="-fx-background-color: #02030A;">
+                  <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="190.0" prefHeight="42.0" prefWidth="589.0" spacing="80.0" style="-fx-background-color: #dddddd;">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="70.0" text="Coach" textFill="#fa5f7e">
+                        <Label prefHeight="18.0" prefWidth="70.0" text="Coach" textFill="#258bbf">
                            <HBox.margin>
                               <Insets left="50.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="41.0" text="Group" textFill="#fa5f7e">
+                        <Label prefHeight="18.0" prefWidth="41.0" text="Group" textFill="#258bbf">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label text="Level" textFill="#fa5f7e">
+                        <Label text="Level" textFill="#258bbf">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="47.0" text="Track" textFill="#fa5f7e">
+                        <Label prefHeight="18.0" prefWidth="47.0" text="Track" textFill="#258bbf">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Label>
-                        <Label text="Time" textFill="#fa5f7e">
+                        <Label text="Time" textFill="#258bbf">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -173,20 +162,397 @@
                   </HBox>
                   <ScrollPane layoutX="99.0" layoutY="232.0" prefHeight="320.0" prefWidth="661.0" stylesheets="@../styling/style.css">
                      <content>
-                        <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="658.0" spacing="5.0" style="-fx-background-color: #02030A;">
+                        <VBox fx:id="pnItems" prefHeight="318.0" prefWidth="658.0" spacing="5.0" style="-fx-background-color: #dddddd;">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </VBox>
                      </content>
                   </ScrollPane>
-                  <ImageView fitHeight="17.0" fitWidth="16.0" layoutX="749.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/icons8_Search_52px.png" />
-                     </image>
-                  </ImageView>
                </children>
             </Pane>
+            <Pane fx:id="information_coach" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dddddd;">
+               <children>
+                  <Label layoutX="220.0" layoutY="23.0" prefHeight="58.0" prefWidth="353.0" text="Information Coach" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="134.0" prefHeight="18.0" prefWidth="184.0" text="Basic Information :" textFill="#258bbf" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="186.0" prefHeight="30.0" prefWidth="75.0" text="Name :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="225.0" prefHeight="30.0" prefWidth="75.0" text="ID :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="265.0" prefHeight="30.0" prefWidth="91.0" text="Address :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="52.0" layoutY="305.0" prefHeight="30.0" prefWidth="91.0" text="Level :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="44.0" layoutY="346.0" prefHeight="30.0" prefWidth="91.0" text="Phone :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Line endX="112.0" layoutX="143.0" layoutY="392.0" startX="-100.0" stroke="#258bbf" />
+                  <Label layoutX="14.0" layoutY="407.0" prefHeight="18.0" prefWidth="184.0" text="All Groups :" textFill="#258bbf" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="427.0" layoutY="134.0" prefHeight="18.0" prefWidth="184.0" text="Attend :" textFill="#258bbf" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" layoutX="463.0" layoutY="195.0" prefHeight="42.0" prefWidth="318.0" spacing="34.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="56.0" text="Day" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="group" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="30.0" text="time" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Couch Repleace" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane layoutX="463.0" layoutY="235.0" prefHeight="186.0" prefWidth="318.0" style="-fx-background-color: #dddddd;" stylesheets="@../styling/style.css">
+                     <content>
+                        <VBox fx:id="v_attend" prefHeight="184.0" prefWidth="316.0" style="-fx-background-color: #dddddd;" />
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="inf_c_name" alignment="CENTER" layoutX="149.0" layoutY="189.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_c_id" alignment="CENTER" layoutX="149.0" layoutY="227.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_c_address" alignment="CENTER" layoutX="149.0" layoutY="267.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_c_level" alignment="CENTER" layoutX="149.0" layoutY="307.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_c_phone" alignment="CENTER" layoutX="149.0" layoutY="348.0" prefHeight="26.0" prefWidth="213.0" />
+                  <HBox fx:id="hBox_allgroup" layoutX="127.0" layoutY="447.0" prefHeight="42.0" prefWidth="661.0" spacing="20.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="information_swimmer" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #dddddd;">
+               <children>
+                  <Label layoutX="189.0" layoutY="32.0" prefHeight="58.0" prefWidth="415.0" text="Information Swimmer" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="134.0" prefHeight="18.0" prefWidth="184.0" text="Basic Information :" textFill="#258bbf" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="164.0" prefHeight="30.0" prefWidth="75.0" text="Name :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="203.0" prefHeight="30.0" prefWidth="75.0" text="ID :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="243.0" prefHeight="30.0" prefWidth="91.0" text="Address :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="288.0" prefHeight="30.0" prefWidth="91.0" text="Phone :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="427.0" layoutY="134.0" prefHeight="18.0" prefWidth="184.0" text="Attend :" textFill="#258bbf" underline="true">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" layoutX="463.0" layoutY="195.0" prefHeight="42.0" prefWidth="318.0" spacing="34.0">
+                     <children>
+                        <Label prefHeight="18.0" prefWidth="56.0" text="Day" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="group" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="30.0" text="time" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Couch Repleace" textFill="#258bbf" underline="true">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ScrollPane layoutX="463.0" layoutY="235.0" prefHeight="186.0" prefWidth="318.0" style="-fx-background-color: #dddddd;" stylesheets="@../styling/style.css">
+                     <content>
+                        <VBox fx:id="v_s_attend" prefHeight="184.0" prefWidth="316.0" style="-fx-background-color: #dddddd;" />
+                     </content>
+                  </ScrollPane>
+                  <TextField fx:id="inf_s_name" alignment="CENTER" layoutX="147.0" layoutY="167.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_s_id" alignment="CENTER" layoutX="147.0" layoutY="205.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_s_address" alignment="CENTER" layoutX="147.0" layoutY="245.0" prefHeight="26.0" prefWidth="213.0" />
+                  <TextField fx:id="inf_s_phone" alignment="CENTER" layoutX="147.0" layoutY="290.0" prefHeight="26.0" prefWidth="213.0" />
+                  <Label layoutX="37.0" layoutY="333.0" prefHeight="30.0" prefWidth="91.0" text="Age :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inf_s_age" alignment="CENTER" layoutX="142.0" layoutY="335.0" prefHeight="26.0" prefWidth="213.0" />
+                  <Label layoutX="37.0" layoutY="420.0" prefHeight="30.0" prefWidth="91.0" text="Group :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inf_s_group" alignment="CENTER" layoutX="142.0" layoutY="422.0" prefHeight="26.0" prefWidth="213.0" />
+                  <Label layoutX="37.0" layoutY="376.0" prefHeight="30.0" prefWidth="91.0" text="Gender :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inf_s_gender" alignment="CENTER" layoutX="142.0" layoutY="378.0" prefHeight="26.0" prefWidth="213.0" />
+                  <Label layoutX="39.0" layoutY="461.0" prefHeight="30.0" prefWidth="91.0" text="Start Day :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inf_s_start_day" alignment="CENTER" layoutX="144.0" layoutY="463.0" prefHeight="26.0" prefWidth="213.0" />
+                  <Label layoutX="39.0" layoutY="496.0" prefHeight="30.0" prefWidth="91.0" text="End Day :" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inf_s_end_day" alignment="CENTER" layoutX="144.0" layoutY="498.0" prefHeight="26.0" prefWidth="213.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="swimmer_group" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #990000;">
+               <children>
+                  <JFXButton fx:id="curr_couch" contentDisplay="TOP" disable="true" layoutX="321.0" layoutY="14.0" prefHeight="171.0" prefWidth="152.0" style="-fx-background-color: #660000;" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="68.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/icons8-coach-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="375.0" layoutY="191.0" prefHeight="18.0" prefWidth="41.0" text="Coach" textFill="WHITE" />
+                  <ScrollPane layoutX="-1.0" layoutY="219.0" prefHeight="357.0" prefWidth="793.0" stylesheets="@../styling/style.css">
+                     <content>
+                        <Pane fx:id="p_allswimerOfgroup" prefHeight="355.0" prefWidth="790.0" style="-fx-background-color: #990000;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </Pane>
+            <Pane fx:id="p_s_add" prefHeight="655.0" prefWidth="1127.0" style="-fx-background-color: #dddddd;">
+               <children>
+                  <Label layoutX="73.0" layoutY="171.0" prefHeight="25.0" prefWidth="70.0" text="Name" textFill="#258bbf">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="add_s_name" focusColor="BLACK" layoutX="156.0" layoutY="165.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_s_adress" focusColor="BLACK" layoutX="157.0" layoutY="228.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_s_phone" focusColor="BLACK" layoutX="156.0" layoutY="296.0" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_s_age" focusColor="BLACK" layoutX="500.0" layoutY="287.0" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXComboBox fx:id="add_s_gender" layoutX="500.0" layoutY="366.0" prefHeight="28.0" prefWidth="152.0" />
+                  <JFXComboBox fx:id="add_s_group" layoutX="156.0" layoutY="366.0" prefHeight="28.0" prefWidth="152.0" />
+                  <Label layoutX="74.0" layoutY="231.0" prefHeight="25.0" prefWidth="60.0" text="Address" textFill="#258bbf">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="303.0" prefHeight="25.0" prefWidth="57.0" text="Phone" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="366.0" prefHeight="25.0" prefWidth="57.0" text="Group" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="900.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="467.0" onAction="#addswimmer" prefHeight="32.0" prefWidth="494.0" style="-fx-background-color: #258bbf;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="265.0" layoutY="68.0" prefHeight="58.0" prefWidth="263.0" text="Add Swimmer" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="435.0" layoutY="291.0" prefHeight="25.0" prefWidth="31.0" text="Age" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="422.0" layoutY="366.0" prefHeight="25.0" prefWidth="57.0" text="Gender" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="p_C_add" prefHeight="655.0" prefWidth="1127.0" style="-fx-background-color: #dddddd;">
+               <children>
+                  <Label layoutX="73.0" layoutY="171.0" prefHeight="25.0" prefWidth="70.0" text="Name" textFill="#258bbf">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="add_C_name" focusColor="BLACK" layoutX="156.0" layoutY="165.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_C_adress" focusColor="BLACK" layoutX="157.0" layoutY="228.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_C_phone" focusColor="BLACK" layoutX="156.0" layoutY="296.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="add_C_gender" focusColor="BLACK" layoutX="156.0" layoutY="363.0" prefHeight="30.0" prefWidth="494.0" style="-fx-background-color: #ffffff;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="74.0" layoutY="231.0" prefHeight="25.0" prefWidth="60.0" text="Address" textFill="#258bbf">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="75.0" layoutY="303.0" prefHeight="25.0" prefWidth="57.0" text="Phone" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="74.0" layoutY="366.0" prefHeight="25.0" prefWidth="60.0" text="Level" textFill="DODGERBLUE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="170.0" fitWidth="200.0" layoutX="900.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton buttonType="RAISED" layoutX="158.0" layoutY="467.0" onAction="#addcoach" prefHeight="32.0" prefWidth="494.0" style="-fx-background-color: #258bbf;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="299.0" layoutY="68.0" prefHeight="58.0" prefWidth="212.0" text="Add Coach" textFill="#258bbf">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="p_allcoach" prefHeight="576.0" prefWidth="765.0" style="-fx-background-color: #3e4345;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="338.0" prefHeight="92.0" prefWidth="115.0" spacing="50.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="92.0" prefWidth="119.0">
+                           <children>
+                              <Label fx:id="l_allcoach" text="22000" textFill="#2a73ff">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label text="All Coach" textFill="#e7e5e5" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <ScrollPane layoutX="-1.0" layoutY="99.0" prefHeight="478.0" prefWidth="793.0" stylesheets="@../styling/style.css">
+                     <content>
+                        <Pane fx:id="p_allCoach" prefHeight="477.0" prefWidth="787.0" style="-fx-background-color: #3e4345;" />
+                     </content>
+                  </ScrollPane>
+                  <JFXButton fx:id="add_coach" buttonType="RAISED" layoutX="685.0" layoutY="480.0" onAction="#swi" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 100; -fx-background-color: #ff4000;" text="+">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </JFXButton>
+               </children></Pane>
          </children>
       </StackPane>
    </children>

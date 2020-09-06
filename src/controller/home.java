@@ -23,6 +23,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -63,18 +65,18 @@ public class home implements Initializable {
     @FXML
     private Label l_g, l_allcoach;
     @FXML
-    private VBox v_s_attend,pnItems,v_attend;
+    private VBox v_s_attend, pnItems, v_attend;
     @FXML
-    private HBox itemC,hBox_allgroup;
+    private HBox itemC, hBox_allgroup;
 
     @FXML
     private Button btnOverview, btnOrders, btnCustomers, btnMenus, btnPackages, btnSettings, btnSignout;
 
     @FXML
-    private Pane p_allSwimmer,p_C_add,p_s_add,information_swimmer,information_coach, p_allCoach, p_allcoach, p_allswimmer, pnlMenus, pnlOverview, swimmer_group, p_allswimerOfgroup;
+    private Pane p_allSwimmer, p_C_add, p_s_add, information_swimmer, information_coach, p_allCoach, p_allcoach, p_allswimmer, pnlMenus, pnlOverview, swimmer_group, p_allswimerOfgroup;
 
     @FXML
-    private JFXButton curr_couch,add_coach;
+    private JFXButton curr_couch, add_coach;
 
     @FXML
     private JFXTextField add_C_name, add_C_phone, add_C_gender, add_C_adress;
@@ -89,22 +91,31 @@ public class home implements Initializable {
 
     @FXML
     private TextField inf_c_name, inf_c_id, inf_c_address, inf_c_level, inf_c_phone, inf_s_name, inf_s_id, inf_s_address, inf_s_phone, inf_s_age, inf_s_group, inf_s_gender, inf_s_start_day, inf_s_end_day;
-    
-    public void addcoach(ActionEvent actionEvent) {
-       
-        if(add_C_name.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Name is ");
-        }else if(add_C_adress.getText().equals("")){
-                    JOptionPane.showMessageDialog(null,"address is ");
 
-        }else{
-        try {
-            allDb.DB_connection();
-            allDb.addcoach(add_C_name.getText(), add_C_phone.getText(), add_C_adress.getText(), add_C_gender.getText());
-            allDb.DB_close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
+    public void addcoach(ActionEvent actionEvent) {
+
+     if (add_C_name.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Name is  empty ");
+    
+        } else if (add_C_adress.getText().equals("") && !add_C_adress.getText().matches("[A-Za-z0-9_]+")) {
+            JOptionPane.showMessageDialog(null, "address is  empty or invalid ");
+
+        } else if (add_C_phone.getText().equals("") || !add_C_phone.getText().matches("\\d{11}")) {
+            JOptionPane.showMessageDialog(null, "phone is empty or invalid");
+
+        } else if (add_C_gender.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "level is empty ");
+
+        } else {
+
+            try {
+                allDb.DB_connection();
+                allDb.addcoach(add_C_name.getText(), add_C_phone.getText(), add_C_adress.getText(), add_C_gender.getText());
+                allDb.DB_close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
         }
     }
 
@@ -123,14 +134,39 @@ public class home implements Initializable {
 //            }
 //        });
 
-        try {
-            allDb.DB_connection();
-            allDb.addswimmer(add_s_name.getText(), add_s_adress.getText(), Integer.parseInt(add_s_age.getText()), add_s_gender.getValue(), add_s_phone.getText(), add_s_group.getValue());
-            allDb.DB_close();
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
+        if (add_s_name.getText().equals("")) {
 
+            JOptionPane.showMessageDialog(null, "Name is  empty ");
+        } else if (!add_s_name.getText().equals("")) {
+       /*     String regex = "^[aA-zZ]\\w{5,29}$";
+            Pattern p = Pattern.compile(regex);
+             if (add_s_name == null) { 
+           JOptionPane.showMessageDialog(null, "false" );
+        }
+            Matcher m = p.matcher(add_s_name.getText());
+            JOptionPane.showMessageDialog(null, m.matches() );
+*/
+        
+        } else if (add_s_adress.getText().equals("") && !add_s_adress.getText().matches("[A-Za-z0-9_]+")) {
+            JOptionPane.showMessageDialog(null, "address is  empty or invalid ");
+
+        } else if (add_s_phone.getText().equals("") || !add_s_phone.getText().matches("\\d{11}")) {
+            JOptionPane.showMessageDialog(null, "phone is empty or invalid");
+
+        } else if (add_s_age.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "phone is empty ");
+
+        } else {
+
+            try {
+                allDb.DB_connection();
+                allDb.addswimmer(add_s_name.getText(), add_s_adress.getText(), Integer.parseInt(add_s_age.getText()), add_s_gender.getValue(), add_s_phone.getText(), add_s_group.getValue());
+                allDb.DB_close();
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+
+        }
     }
 
     public void swi(ActionEvent actionEvent) {
@@ -138,7 +174,7 @@ public class home implements Initializable {
             //   pnlCustomer.setStyle("-fx-background-color : #1620A1");
             p_allcoach.toFront();
         }
-         if (actionEvent.getSource() == add_coach) {
+        if (actionEvent.getSource() == add_coach) {
             //   pnlCustomer.setStyle("-fx-background-color : #1620A1");
             p_C_add.toFront();
         }
@@ -147,7 +183,7 @@ public class home implements Initializable {
             pnlMenus.toFront();
         }
         if (actionEvent.getSource() == btnOverview) {
-           // pnlOverview.setStyle("-fx-background-color : #02030A");
+            // pnlOverview.setStyle("-fx-background-color : #02030A");
             pnlOverview.toFront();
         }
         if (actionEvent.getSource() == btnOrders) {
@@ -301,22 +337,22 @@ public class home implements Initializable {
                             + "\nAddress : " + coach.get(count).getAdress()
                             + "\nPhone : " + coach.get(count).getPhone()
                             + "\nLevel : " + coach.get(count).getLevel());
-                    l.setId(count+"");
-                    
-                      l.setOnAction(e -> { 
+                    l.setId(count + "");
+
+                    l.setOnAction(e -> {
                         try {
                             hBox_allgroup.getChildren().clear();
                             v_attend.getChildren().clear();
                             allDb.DB_connection();
-                            cardOfattend(v_attend,allDb.attend_couch(coach.get(Integer.parseInt(l.getId())).getC_id()),coach.get(Integer.parseInt(l.getId())));
+                            cardOfattend(v_attend, allDb.attend_couch(coach.get(Integer.parseInt(l.getId())).getC_id()), coach.get(Integer.parseInt(l.getId())));
                             allDb.DB_close();
                             information_coach.toFront();
                         } catch (SQLException ex) {
 
                         }
-                      
-                      });
-                      count++;
+
+                    });
+                    count++;
                     p.getChildren().add(l);
                 }
             }
@@ -370,22 +406,22 @@ public class home implements Initializable {
                     l.setText("Id : " + swimmer.get(count).getS_id()
                             + "\nName : " + swimmer.get(count).getName()
                             + "\nGender : " + swimmer.get(count).getGender());
-                   
-                    JFXCheckBox ch=new JFXCheckBox("Attend");
+
+                    JFXCheckBox ch = new JFXCheckBox("Attend");
                     ch.setCheckedColor(rgb(42, 115, 255));
                     ch.setTextFill(rgb(255, 255, 255));
                     ch.setSelected(true);
                     ch.setOnAction((event) -> {
-                       if(ch.isSelected()){
-                       
-                       } 
+                        if (ch.isSelected()) {
+
+                        }
                     });
                     ch.setLayoutX(j * 250 + 35);
                     ch.setLayoutY(i * 240 + 10);
-                    
+
                     count++;
                     //  l.setOnAction(e -> { });
-                   
+
                     p.getChildren().add(l);
                     p.getChildren().add(ch);
                 }
@@ -394,59 +430,56 @@ public class home implements Initializable {
 
     }
 
-    private void cardOfattend(VBox v, List<attend_couch> attend_couch,coach curr) throws SQLException {
+    private void cardOfattend(VBox v, List<attend_couch> attend_couch, coach curr) throws SQLException {
 
         System.out.println(attend_couch.size());
-        for(int i=0;i<attend_couch.size();i++){
-        Label l1 = new Label(attend_couch.get(i).getDay()+"");
-        Label l2 = new Label(attend_couch.get(i).getG_id() + "");
-        Label l3 = new Label(attend_couch.get(i).getTime()+"");
-        Label l4 = new Label(attend_couch.get(i).getRep_name());
-        
-        l1.setTextFill(rgb(37, 139, 191));
-        l2.setTextFill(rgb(37, 139, 191));
-        l3.setTextFill(rgb(37, 139, 191));
-        l4.setTextFill(rgb(37, 139, 191));
+        for (int i = 0; i < attend_couch.size(); i++) {
+            Label l1 = new Label(attend_couch.get(i).getDay() + "");
+            Label l2 = new Label(attend_couch.get(i).getG_id() + "");
+            Label l3 = new Label(attend_couch.get(i).getTime() + "");
+            Label l4 = new Label(attend_couch.get(i).getRep_name());
 
+            l1.setTextFill(rgb(37, 139, 191));
+            l2.setTextFill(rgb(37, 139, 191));
+            l3.setTextFill(rgb(37, 139, 191));
+            l4.setTextFill(rgb(37, 139, 191));
 
-        l1.setFont(javafx.scene.text.Font.font("System Bold", 13));
-        l2.setFont(javafx.scene.text.Font.font("System Bold", 13));
-        l3.setFont(javafx.scene.text.Font.font("System Bold", 13));
-        l4.setFont(javafx.scene.text.Font.font("System Bold", 13));
+            l1.setFont(javafx.scene.text.Font.font("System Bold", 13));
+            l2.setFont(javafx.scene.text.Font.font("System Bold", 13));
+            l3.setFont(javafx.scene.text.Font.font("System Bold", 13));
+            l4.setFont(javafx.scene.text.Font.font("System Bold", 13));
 
-        HBox h = new HBox();
-       // h.setPrefSize(600, 300);
-        h.setAlignment(Pos.CENTER_LEFT);
-        h.setSpacing(25);
+            HBox h = new HBox();
+            // h.setPrefSize(600, 300);
+            h.setAlignment(Pos.CENTER_LEFT);
+            h.setSpacing(25);
 
-        h.getChildren().add(l1);
-        h.getChildren().add(l2);
-        h.getChildren().add(l3);
-        h.getChildren().add(l4);
-        
-        v.getChildren().add(h);
+            h.getChildren().add(l1);
+            h.getChildren().add(l2);
+            h.getChildren().add(l3);
+            h.getChildren().add(l4);
+
+            v.getChildren().add(h);
         }
         inf_c_name.setText(curr.getName());
-        inf_c_id.setText(curr.getC_id()+"");
+        inf_c_id.setText(curr.getC_id() + "");
         inf_c_level.setText(curr.getLevel());
         inf_c_phone.setText(curr.getPhone());
         inf_c_address.setText(curr.getAdress());
-        
-         List<Integer> id=new ArrayList<Integer>();
-        
-       id=allDb.get_All_Id_Of_Group_for_couch(curr.getC_id());
-       
-        for(int i=0;i<id.size();i++){
-        Label l1 = new Label(id.get(i)+"");
-        l1.setTextFill(rgb(37, 139, 191));
-        l1.setFont(javafx.scene.text.Font.font("System Bold", 18));
-        
-        hBox_allgroup.getChildren().addAll(l1);
-        }
-    
-        
-    }
 
+        List<Integer> id = new ArrayList<Integer>();
+
+        id = allDb.get_All_Id_Of_Group_for_couch(curr.getC_id());
+
+        for (int i = 0; i < id.size(); i++) {
+            Label l1 = new Label(id.get(i) + "");
+            l1.setTextFill(rgb(37, 139, 191));
+            l1.setFont(javafx.scene.text.Font.font("System Bold", 18));
+
+            hBox_allgroup.getChildren().addAll(l1);
+        }
+
+    }
 
 }
 
